@@ -7,7 +7,7 @@ spring:
           lower-case-service-id: true
 
 jwt:
-  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+  secret: n4EpjnNy7x8FjfwYMDjPi8xYyL0EocN1uzUsfFTbLhk=
   expiration: 86400
 
 eureka:
