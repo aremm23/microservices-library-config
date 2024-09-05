@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library_db
+    username: postgres
+    password: postgres
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+
+queue:
+  name: queue-2
+
+library:
+  days: 31
