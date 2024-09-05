@@ -24,3 +24,9 @@ queue:
 
 library:
   days: 31
+  
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
