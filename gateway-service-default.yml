@@ -8,7 +8,6 @@ spring:
 
 jwt:
   secret: n4EpjnNy7x8FjfwYMDjPi8xYyL0EocN1uzUsfFTbLhk=
-  expiration: 86400
 
 eureka:
   client:
