@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/authentication_db
+    url: jdbc:postgresql://${POSTGRES_URI:localhost:5432}/authentication_db
     username: postgres
     password: postgres
 
@@ -23,7 +23,7 @@ eureka:
   client:
     service-url:
       defaultZone:
-        http://localhost:8761/eureka
+        defaultZone: http://${EUREKA_URI:localhost:8761}/eureka/
 
 springdoc:
   api-docs:
