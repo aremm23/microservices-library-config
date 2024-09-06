@@ -14,7 +14,7 @@ spring:
       ddl-auto: none
       
   rabbitmq:
-    host: ${RABBIT_HOST:localhost}
+    host: ${RABBIT_HOST:rabbitmq}
     username: guest
     password: guest
     port: ${RABBIT_PORT:5672}
