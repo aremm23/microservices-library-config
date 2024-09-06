@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/core_book_db
+    url: jdbc:postgresql://postgres:5432/core_book_db
     username: postgres  
     password: postgres
 
@@ -25,7 +25,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${EUREKA_URI:localhost:8761}/eureka/
+      defaultZone: http://${EUREKA_URI:eureka-service:8761}/eureka/
 
 queue:
   name: queue-1
