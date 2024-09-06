@@ -22,8 +22,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone:
-        defaultZone: http://${EUREKA_URI:eureka-service:8761}/eureka/
+      defaultZone: http://${EUREKA_URI:eureka-service:8761}/eureka/
 
 springdoc:
   api-docs:
