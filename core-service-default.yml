@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_URI:localhost:5432}/core_book_db
+    url: jdbc:postgresql://localhost:5432/core_book_db
     username: postgres  
     password: postgres
 
@@ -14,10 +14,10 @@ spring:
       ddl-auto: none
 
   rabbitmq:
-    host: ${RABBIT_HOST:localhost}
+    host: localhost
     username: guest
     password: guest
-    port: ${RABBIT_PORT:5672}
+    port: 5672
 
 
 eureka:
