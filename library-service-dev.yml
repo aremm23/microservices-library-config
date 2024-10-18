@@ -3,6 +3,13 @@ spring:
     url: jdbc:postgresql://${POSTGRES_URI:localhost:5432}/library_db
     username: postgres
     password: postgres
+    
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://localhost:9082/realms/test-realm}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
 
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
