@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_URI:postgres:5432}/library_db
+    url: jdbc:postgresql://${POSTGRES_URI:localhost:5432}/library_db
     username: postgres
     password: postgres
 
@@ -14,7 +14,7 @@ spring:
       ddl-auto: none
       
   rabbitmq:
-    host: ${RABBIT_HOST:rabbitmq}
+    host: ${RABBIT_HOST:localhost}
     username: guest
     password: guest
     port: ${RABBIT_PORT:5672}
@@ -24,7 +24,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${EUREKA_URI:localhost8761}/eureka/
+      defaultZone: http://${EUREKA_URI:localhost:8761}/eureka/
 
 queue:
   name: queue-1
