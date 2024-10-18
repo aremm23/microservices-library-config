@@ -43,6 +43,24 @@ spring:
             - name: Path
               args:
                 pattern: /api/v1/library/**
+        - id:  library_health_route
+          uri: lb://library-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /library-service/actuator/health
+        - id:  core_health_route
+          uri: lb://core-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /core-service/actuator/health
+        - id:  auth_health_route
+          uri: lb://auth-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /auth-service/actuator/health
   security:
     oauth2:
       resourceserver:
