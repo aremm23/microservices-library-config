@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_URI:postgres:5432}/library_db
+    username: postgres
+    password: postgres
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      
+  rabbitmq:
+    host: ${RABBIT_HOST:rabbitmq}
+    username: guest
+    password: guest
+    port: ${RABBIT_PORT:5672}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${EUREKA_URI:localhost8761}/eureka/
+
+queue:
+  name: queue-1
+
+library:
+  days: 31
+  
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
