@@ -10,7 +10,7 @@ app:
   keycloak:
     admin:
       client-id: ${APP_KEYCLOAK_ADMIN_CLIENT_ID:admin-cli}
-      client-secret: ${APP_KEYCLOAK_ADMIN_CLIENT_SECRET:zBwf4CXm9P7LtH1ImzzEMHJs3r7IpgaW}
+      client-secret: ${APP_KEYCLOAK_ADMIN_CLIENT_SECRET:B94o4ZqcyiGu2jlTshsmSM7H9FIY0iDO}
     user:
       client-id: ${APP_KEYCLOAK_USER_CLIENT_ID:microservices-spring-clientt}
     realm: ${APP_KEYCLOAK_REALM:microservices-app-realm}
