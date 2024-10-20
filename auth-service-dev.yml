@@ -10,9 +10,9 @@ app:
   keycloak:
     admin:
       client-id: ${APP_KEYCLOAK_ADMIN_CLIENT_ID:admin-cli}
-      client-secret: ${APP_KEYCLOAK_ADMIN_CLIENT_SECRET:B94o4ZqcyiGu2jlTshsmSM7H9FIY0iDO}
+      client-secret: ${APP_KEYCLOAK_ADMIN_CLIENT_SECRET:hwrGBRj1Q275MEd0gpTF7bNS4RBKgMOm}
     user:
-      client-id: ${APP_KEYCLOAK_USER_CLIENT_ID:microservices-spring-clientt}
+      client-id: ${APP_KEYCLOAK_USER_CLIENT_ID:microservices-spring-client}
     realm: ${APP_KEYCLOAK_REALM:microservices-app-realm}
     server-url: ${APP_KEYCLOAK_SERVER_URL:http://localhost:9082}
     grant-type: ${APP_KEYCLOAK_GRANT_TYPE:client_credentials}
