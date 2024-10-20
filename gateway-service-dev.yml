@@ -61,12 +61,30 @@ spring:
             - name: Path
               args:
                 pattern: /auth-service/actuator/health
+        - id: core_swagger_route
+          uri: lb://core-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /core-service/swagger-ui/**
+
+
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: ${OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://localhost:9082/realms/microservices-app-realm}
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Core Service
+        url: /core-service/swagger-ui/index.html
+      - name: Library Service
+        url: /library-service/swagger-ui/index.html
+      - name: Auth Service
+        url: /auth-service/swagger-ui/index.html
 
 eureka:
   client:
