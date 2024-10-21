@@ -61,6 +61,12 @@ spring:
             - name: Path
               args:
                 pattern: /auth-service/actuator/health
+        - id:  core_check_port_route
+          uri: lb://core-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /core-service/service-health/**
         - id: core_swagger_route
           uri: lb://core-service
           predicates:
