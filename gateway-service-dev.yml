@@ -38,7 +38,7 @@ spring:
           filters:
             - name: CircuitBreaker
               args:
-                name: auth-service-circuit
+                name: role-service-circuit
                 fallbackUri: redirect:/fallback/auth-service
         - id: groups_route
           uri: lb://auth-service
@@ -49,7 +49,7 @@ spring:
           filters:
             - name: CircuitBreaker
               args:
-                name: auth-service-circuit
+                name: group-service-circuit
                 fallbackUri: redirect:/fallback/auth-service
         - id: users_route
           uri: lb://auth-service
@@ -60,7 +60,7 @@ spring:
           filters:
             - name: CircuitBreaker
               args:
-                name: auth-service-circuit
+                name: users-service-circuit
                 fallbackUri: redirect:/fallback/auth-service
         - id:  library_route
           uri: lb://library-service
