@@ -39,6 +39,9 @@ queue:
 
 springdoc:
   api-docs:
+    path: /core-service-docs/v3/api-docs
     enabled: true
   swagger-ui:
+    path: /core-service-docs/swagger-ui.html
     enabled: true
+    
