@@ -72,13 +72,7 @@ spring:
           predicates:
             - name: Path
               args:
-                pattern: /core-service-docs/swagger-ui/**
-        - id: core_api_docs_route
-          uri: lb://core-service
-          predicates:
-            - name: Path
-              args:
-                pattern: /core-service-docs/v3/api-docs/**
+                pattern: /core-service-docs/**
 
 
   security:
