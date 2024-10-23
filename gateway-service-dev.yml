@@ -73,6 +73,18 @@ spring:
             - name: Path
               args:
                 pattern: /core-service-docs/**
+        - id: auth_swagger_route
+          uri: lb://auth-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /auth-service-docs/**
+        - id: library_swagger_route
+          uri: lb://library-service
+          predicates:
+            - name: Path
+              args:
+                pattern: /library-service-docs/**
 
 
   security:
@@ -91,11 +103,11 @@ springdoc:
     config-url: /v3/api-docs/swagger-config
     urls:
       - name: Core Service
-        url: /core-service-docs/swagger-ui.html
+        url: /core-service-docs/swagger-ui/index.html
       - name: Library Service
-        url: /library-service-docs/swagger-ui.html
+        url: /library-service-docs/swagger-ui/index.html
       - name: Auth Service
-        url: /auth-service-docs/swagger-ui.html
+        url: /auth-service-docs/swagger-ui/index.html
 
 eureka:
   client:
