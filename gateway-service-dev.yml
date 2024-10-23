@@ -24,30 +24,55 @@ spring:
             - name: Path
               args:
                 pattern: /api/v1/auth/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: auth-service-circuit
+                fallbackUri: redirect:/fallback/auth-service
         - id: role_route
           uri: lb://auth-service
           predicates:
             - name: Path
               args:
                 pattern: /api/v1/roles/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: auth-service-circuit
+                fallbackUri: redirect:/fallback/auth-service
         - id: groups_route
           uri: lb://auth-service
           predicates:
             - name: Path
               args:
                 pattern: /api/v1/groups/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: auth-service-circuit
+                fallbackUri: redirect:/fallback/auth-service
         - id: users_route
           uri: lb://auth-service
           predicates:
             - name: Path
               args:
                 pattern: /api/v1/users/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: auth-service-circuit
+                fallbackUri: redirect:/fallback/auth-service
         - id:  library_route
           uri: lb://library-service
           predicates:
             - name: Path
               args:
                 pattern: /api/v1/library/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: library-service-circuit
+                fallbackUri: redirect:/fallback/library-service
         - id:  library_health_route
           uri: lb://library-service
           predicates:
@@ -91,8 +116,6 @@ spring:
               args:
                 pattern: /library-service-docs/**
 
-
-
   security:
     oauth2:
       resourceserver:
@@ -114,6 +137,36 @@ springdoc:
         url: /library-service-docs/swagger-ui/index.html
       - name: Auth Service
         url: /auth-service-docs/swagger-ui/index.html
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        register-health-indicator: true
+        sliding-window-size: 10
+        sliding-window-type: COUNT_BASED
+        failure-rate-threshold: 50
+        wait-duration-in-open-state:
+          seconds: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+  timelimiter:
+    configs:
+      default:
+        timeout-duration:
+          seconds: 3
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 
 eureka:
   client:
