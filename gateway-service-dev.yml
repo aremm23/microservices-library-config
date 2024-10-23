@@ -97,11 +97,11 @@ springdoc:
     config-url: /v3/api-docs/swagger-config
     urls:
       - name: Core Service
-        url: /core-service-docs/swagger-ui/index.html
+        url: /core-service-docs/swagger-ui.html
       - name: Library Service
-        url: /library-service-docs/swagger-ui/index.html
+        url: /library-service-docs/swagger-ui.html
       - name: Auth Service
-        url: /auth-service-docs/swagger-ui/index.html
+        url: /auth-service-docs/swagger-ui.html
 
 eureka:
   client:
